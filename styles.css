@@ -452,12 +452,14 @@ body {
     left: 0;
     top: 0;
     width: 280px;
-    height: 100vh;
+    height: 100%;
     background: #f0f0f0;
     border-right: 1px solid #ddd;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     z-index: 1000;
     transition: transform 0.3s ease;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .nav-header {
@@ -525,16 +527,39 @@ body {
 
 @media (max-width: 768px) {
     .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
+        width: 250px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
-    
-    .container {
-        margin-left: 0;
-        width: 100%;
+
+    .nav-section {
+        padding-bottom: 20px;
+    }
+
+    .nav-section:last-child {
+        padding-bottom: 50px;
+    }
+
+    body.sidebar-active {
+        overflow: hidden;
+    }
+
+    .menu-toggle {
+        top: max(15px, env(safe-area-inset-top));
+        left: max(15px, env(safe-area-inset-left));
+    }
+}
+
+/* 添加安全区域适配 */
+@supports (padding: max(0px)) {
+    .sidebar {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
     }
 }
 

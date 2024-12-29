@@ -1403,18 +1403,36 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleSidebar() {
         sidebar.classList.toggle('active');
         overlay.classList.toggle('active');
-        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        document.body.classList.toggle('sidebar-active'); // 添加body类
+        
+        // 如果侧边栏打开,滚动到顶部
+        if (sidebar.classList.contains('active')) {
+            sidebar.scrollTop = 0;
+        }
     }
 
     function openSidebar() {
         sidebar.classList.add('active');
         overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('sidebar-active');
+        sidebar.scrollTop = 0;
     }
 
     function closeSidebar() {
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
-        document.body.style.overflow = '';
+        document.body.classList.remove('sidebar-active');
     }
+
+    // 防止侧边栏滚动传递到body
+    sidebar.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+    }, { passive: true });
+
+    // 处理iOS橡皮筋效果
+    document.addEventListener('touchmove', (e) => {
+        if (document.body.classList.contains('sidebar-active')) {
+            e.preventDefault();
+        }
+    }, { passive: false });
 }); 
