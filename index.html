@@ -8,111 +8,120 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <nav class="sidebar">
-            <div class="nav-header">
-                <i class="fas fa-calculator"></i>
-                <span>计算器</span>
-            </div>
-            <div class="nav-section">
-                <div class="section-title">计算器</div>
-                <a href="#" class="nav-item" data-mode="standard">
-                    <i class="fas fa-calculator"></i>
-                    <span>标准</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="scientific">
-                    <i class="fas fa-square-root-alt"></i>
-                    <span>科学</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="programmer">
-                    <i class="fas fa-code"></i>
-                    <span>程序员</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="date">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>日期</span>
-                </a>
-            </div>
-            <div class="nav-section">
-                <div class="section-title">转换器</div>
-                <a href="#" class="nav-item" data-mode="currency">
-                    <i class="fas fa-dollar-sign"></i>
-                    <span>货币</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="volume">
-                    <i class="fas fa-cube"></i>
-                    <span>容量</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="length">
-                    <i class="fas fa-ruler"></i>
-                    <span>长度</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="weight">
-                    <i class="fas fa-weight"></i>
-                    <span>重量</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="temperature">
-                    <i class="fas fa-thermometer-half"></i>
-                    <span>温度</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="energy">
-                    <i class="fas fa-bolt"></i>
-                    <span>能量</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="area">
-                    <i class="fas fa-vector-square"></i>
-                    <span>面积</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="speed">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>速度</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="time">
-                    <i class="fas fa-clock"></i>
-                    <span>时间</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="power">
-                    <i class="fas fa-plug"></i>
-                    <span>功率</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="data">
-                    <i class="fas fa-database"></i>
-                    <span>数据</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="pressure">
-                    <i class="fas fa-compress-arrows-alt"></i>
-                    <span>压强</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="angle">
-                    <i class="fas fa-ruler-combined"></i>
-                    <span>角度</span>
-                </a>
-            </div>
-            <div class="nav-section">
-                <div class="section-title">单位转换</div>
-                <a href="#" class="nav-item" data-mode="currency-converter">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span>货币转换</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="length-converter">
-                    <i class="fas fa-ruler"></i>
-                    <span>长度转换</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="volume-converter">
-                    <i class="fas fa-cube"></i>
-                    <span>容量转换</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="weight-converter">
-                    <i class="fas fa-weight"></i>
-                    <span>重量转换</span>
-                </a>
-                <a href="#" class="nav-item" data-mode="temperature-converter">
-                    <i class="fas fa-thermometer-half"></i>
-                    <span>温度转换</span>
-                </a>
-            </div>
-        </nav>
+    <!-- 添加汉堡菜单按钮 -->
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </button>
 
+    <!-- 添加遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 确保sidebar在container之前 -->
+    <nav class="sidebar">
+        <div class="nav-header">
+            <i class="fas fa-calculator"></i>
+            <span>计算器</span>
+        </div>
+        <div class="nav-section">
+            <div class="section-title">计算器</div>
+            <a href="#" class="nav-item" data-mode="standard">
+                <i class="fas fa-calculator"></i>
+                <span>标准</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="scientific">
+                <i class="fas fa-square-root-alt"></i>
+                <span>科学</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="programmer">
+                <i class="fas fa-code"></i>
+                <span>程序员</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>日期</span>
+            </a>
+        </div>
+        <div class="nav-section">
+            <div class="section-title">转换器</div>
+            <a href="#" class="nav-item" data-mode="currency">
+                <i class="fas fa-dollar-sign"></i>
+                <span>货币</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="volume">
+                <i class="fas fa-cube"></i>
+                <span>容量</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="length">
+                <i class="fas fa-ruler"></i>
+                <span>长度</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="weight">
+                <i class="fas fa-weight"></i>
+                <span>重量</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="temperature">
+                <i class="fas fa-thermometer-half"></i>
+                <span>温度</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="energy">
+                <i class="fas fa-bolt"></i>
+                <span>能量</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="area">
+                <i class="fas fa-vector-square"></i>
+                <span>面积</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="speed">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>速度</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="time">
+                <i class="fas fa-clock"></i>
+                <span>时间</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="power">
+                <i class="fas fa-plug"></i>
+                <span>功率</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="data">
+                <i class="fas fa-database"></i>
+                <span>数据</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="pressure">
+                <i class="fas fa-compress-arrows-alt"></i>
+                <span>压强</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="angle">
+                <i class="fas fa-ruler-combined"></i>
+                <span>角度</span>
+            </a>
+        </div>
+        <div class="nav-section">
+            <div class="section-title">单位转换</div>
+            <a href="#" class="nav-item" data-mode="currency-converter">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>货币转换</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="length-converter">
+                <i class="fas fa-ruler"></i>
+                <span>长度转换</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="volume-converter">
+                <i class="fas fa-cube"></i>
+                <span>容量转换</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="weight-converter">
+                <i class="fas fa-weight"></i>
+                <span>重量转换</span>
+            </a>
+            <a href="#" class="nav-item" data-mode="temperature-converter">
+                <i class="fas fa-thermometer-half"></i>
+                <span>温度转换</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
         <main class="content">
             <div id="standard-calculator" class="calculator-mode">
                 <div class="calculator-container">

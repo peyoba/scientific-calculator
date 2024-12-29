@@ -457,6 +457,7 @@ body {
     border-right: 1px solid #ddd;
     overflow-y: auto;
     z-index: 1000;
+    transition: transform 0.3s ease;
 }
 
 .nav-header {
@@ -999,4 +1000,63 @@ body {
 
 .button:active {
     transform: scale(0.95);
+} 
+
+/* 汉堡菜单按钮 */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* 遮罩层样式 */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    /* 显示汉堡菜单 */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 调整容器边距 */
+    .container {
+        margin-left: 0;
+        width: 100%;
+        padding: 10px;
+        padding-top: 60px; /* 为顶部菜单按钮留出空间 */
+    }
+
+    /* 侧边栏默认隐藏 */
+    .sidebar {
+        transform: translateX(-100%);
+        width: 250px;
+    }
+
+    /* 侧边栏显示状态 */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* 遮罩层显示状态 */
+    .overlay.active {
+        display: block;
+    }
 } 

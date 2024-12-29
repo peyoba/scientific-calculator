@@ -1360,4 +1360,61 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
         console.error('Error initializing calculator manager:', error);
     }
+});
+
+// 添加移动端导航控制
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('overlay');
+
+    // 汉堡菜单点击事件
+    menuToggle.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
+
+    // 添加触摸滑动支持
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        const threshold = 100;
+
+        if (Math.abs(swipeDistance) < threshold) return;
+
+        if (swipeDistance > 0 && touchStartX < 30) {
+            // 从左向右滑动，打开侧边栏
+            openSidebar();
+        } else if (swipeDistance < 0 && sidebar.classList.contains('active')) {
+            // 从右向左滑动，关闭侧边栏
+            closeSidebar();
+        }
+    }
+
+    function toggleSidebar() {
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+    }
+
+    function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 }); 
