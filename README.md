@@ -63,4 +63,60 @@
 
 ### 项目结构
 
+## 更新日志
 
+查看 [CHANGELOG.md](CHANGELOG.md) 了解详细的更新历史。
+
+## 贡献指南
+
+1. Fork 本仓库
+2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交你的改动 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 打开一个 Pull Request
+
+## 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+
+# 科学计算器
+
+![Version](https://img.shields.io/badge/version-1.1-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+一个功能全面的网页版科学计算器，支持多种计算功能和单位转换。
+
+## 功能特点
+
+### 计算器功能
+- 标准计算器：基本运算、百分比、平方根等
+- 科学计算器：三角函数、对数、指数等
+- 程序员计算器：进制转换、位运算等
+- 日期计算器：日期差值、日期加减
+
+### 转换器功能
+- 支持 14 种不同类型的单位转换
+- 实时转换结果
+- 双向转换功能
+- 精确的转换率
+
+### 界面特性
+- 响应式设计
+- 深色模式支持
+- 移动端适配
+- 动画效果
+- 历史记录功能
+
+## 快速开始
+
+1. 克隆仓库：
+
+git clone https://github.com/peyoba/scientific-calculator.git
+
+## 开发
+
+### 环境要求
+- 现代浏览器（Chrome、Firefox、Safari、Edge 最新版）
+- JavaScript ES6+
+
+### 测试
