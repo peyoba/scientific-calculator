@@ -1,0 +1,1002 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --display-bg: #ecf0f1;
+    --button-bg: #fff;
+    --button-hover: #e0e0e0;
+    --function-button: #3498db;
+    --operator-button: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f6fa;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: 280px;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.content {
+    flex: 1;
+    position: relative;
+    min-height: 500px;
+}
+
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calculator {
+    background: var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.display {
+    background: var(--display-bg);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.memory-display {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: #666;
+    visibility: hidden;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: #666;
+    min-height: 24px;
+    margin-bottom: 5px;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    color: #333;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 1.2;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.keypad button {
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--button-bg);
+    transition: all 0.2s;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.keypad .zero {
+    grid-column: span 2;
+}
+
+.keypad .equals {
+    grid-column: span 2;
+    background: #27ae60;
+    color: white;
+}
+
+.keypad .function {
+    background: var(--function-button);
+    color: white;
+}
+
+.keypad .operator {
+    background: var(--operator-button);
+    color: white;
+}
+
+.number {
+    background: var(--button-bg);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.equals {
+    background: #27ae60;
+    color: white;
+}
+
+.clear {
+    background: #95a5a6;
+    color: white;
+}
+
+.history {
+    margin-left: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.history h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.history-content {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
+    
+    .history {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+        padding: 10px;
+    }
+    
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+}
+
+.unit-converter {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.converter-container {
+    margin-top: 15px;
+}
+
+#unitType {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.converter-input {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 0.5fr 2fr 1.5fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.converter-input input,
+.converter-input select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.converter-input span {
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .unit-converter {
+        width: 100%;
+    }
+}
+
+/* 科学计算器样式 */
+.scientific-keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+/* 内存按钮行 */
+.memory-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.memory-row button {
+    padding: 6px;
+    font-size: 0.9rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 32px;
+}
+
+/* 主键盘区域 */
+.scientific-keypad .main-keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.scientific-keypad .main-keypad button {
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 按钮样式 */
+.scientific-keypad .main-keypad .number {
+    background: white;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.scientific-keypad .main-keypad .function {
+    background: var(--function-button);
+    color: white;
+}
+
+.scientific-keypad .main-keypad .operator {
+    background: var(--operator-button);
+    color: white;
+    font-weight: bold;
+}
+
+.scientific-keypad .main-keypad .equals {
+    background: #27ae60;
+    color: white;
+    font-weight: bold;
+}
+
+.scientific-keypad .main-keypad .clear {
+    background: #95a5a6;
+    color: white;
+}
+
+/* 按钮悬停效果 */
+.scientific-keypad button:hover {
+    filter: brightness(0.9);
+}
+
+.scientific-keypad button:active {
+    transform: scale(0.95);
+}
+
+/* 角度模式显示 */
+.angle-mode {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.angle-mode button {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.angle-mode button.active {
+    opacity: 1;
+    background: var(--operator-button);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .scientific-keypad {
+        gap: 6px;
+    }
+    
+    .memory-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .scientific-keypad .main-keypad {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .scientific-keypad button {
+        font-size: 0.9rem;
+        padding: 8px;
+        height: 40px;
+    }
+}
+
+/* 2nd功能按钮激活状态 */
+.function.active {
+    background: var(--operator-button) !important;
+}
+
+/* 修改模式显示/隐藏的样式 */
+.calculator-mode,
+.converter-mode {
+    display: none;
+}
+
+.calculator-mode.active,
+.converter-mode.active {
+    display: block;
+}
+
+/* 确保导航项可点击 */
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    background: #e0e0e0;
+}
+
+.nav-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* 调整按钮大小 */
+.scientific-keypad button {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* 特殊函数按钮样式 */
+.scientific-keypad .function {
+    background: var(--function-button);
+    color: white;
+}
+
+.scientific-keypad .trigonometry-panel button {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* 添加侧边栏样式 */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background: #f0f0f0;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.nav-header {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.nav-section {
+    margin-top: 20px;
+}
+
+.section-title {
+    padding: 10px 20px;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-item:hover {
+    background: #e0e0e0;
+}
+
+.nav-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+}
+
+/* 调整主内容区域的位置 */
+.container {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .container {
+        margin-left: 240px;
+        width: calc(100% - 240px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* 程序员计算器样式 */
+.programmer-display {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background: var(--display-bg);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.base-display {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.hex-display, .dec-display, .oct-display, .bin-display {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bit-display {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.bit-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bit-label {
+    width: 60px;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.bit-buttons {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+}
+
+.bit-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: 0.8rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.bit-button.active {
+    background: var(--function-button);
+    color: white;
+}
+
+/* 字长和进制选择 */
+.word-size, .base-select {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.size-select, .base-button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.9rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.size-select.active, .base-button.active {
+    background: var(--operator-button);
+}
+
+/* 按键区域 */
+.programmer-keypad {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+/* 按钮基础样式 */
+.programmer-keypad button {
+    padding: 8px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--primary-color);
+    transition: transform 0.1s ease, filter 0.1s ease;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    outline: none;
+}
+
+/* 按钮类型样式 */
+.programmer-keypad .number {
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.programmer-keypad .function {
+    background-color: var(--function-button);
+    color: white;
+}
+
+.programmer-keypad .operator {
+    background-color: var(--operator-button);
+    color: white;
+    font-weight: bold;
+}
+
+.programmer-keypad .equals {
+    background-color: #27ae60;
+    color: white;
+    font-weight: bold;
+}
+
+.programmer-keypad .clear {
+    background-color: #95a5a6;
+    color: white;
+}
+
+/* 按钮交互效果 */
+.programmer-keypad button:hover {
+    filter: brightness(0.95);
+}
+
+.programmer-keypad button:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+}
+
+/* 工具提示样式 */
+.programmer-keypad button[title] {
+    position: relative;
+}
+
+.programmer-keypad button[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .programmer-keypad {
+        gap: 4px;
+    }
+    
+    .programmer-keypad button {
+        font-size: 0.8rem;
+        padding: 6px;
+        height: 32px;
+    }
+}
+
+/* 添加日期计算器界面 */
+#date-calculator {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.date-calculator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.date-input-group {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.date-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.date-result {
+    padding: 15px;
+    background: var(--display-bg);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.date-operations {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.date-operation-button {
+    padding: 10px;
+    background: var(--function-button);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .bit-buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .date-input-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 转换器通用样式 */
+.converter-mode {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 0;
+    overflow: hidden;
+}
+
+.converter-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+}
+
+.converter-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.converter-body {
+    padding: 20px;
+}
+
+.converter-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.converter-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.converter-input {
+    padding: 12px;
+    font-size: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.converter-select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    background: white;
+}
+
+.converter-equals {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #666;
+    padding: 10px;
+}
+
+.converter-info {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.update-time {
+    color: #999;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* 应式调整 */
+@media (min-width: 768px) {
+    .converter-input-group {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .converter-input-container {
+        flex: 1;
+    }
+    
+    .converter-equals {
+        padding: 0 20px;
+    }
+} 
+
+/* 程序员计算器历史记录样式 */
+.history-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.history-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.history-expression {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.history-bases {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #666;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.hex-result, .dec-result, .oct-result, .bin-result {
+    padding: 2px 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+} 
+
+/* 程序员计算器主键盘布局 */
+.main-keypad {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+/* 十六进制按钮区域 */
+.hex-buttons {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+/* 控制按钮区域 */
+.control-buttons {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+/* 数字按钮区域 */
+.number-buttons {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+/* 运算符按钮区域 */
+.operator-buttons {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+/* 功能按钮区域 */
+.function-buttons {
+    grid-column: span 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+} 
+
+/* 添加深色模式支持 */
+:root[data-theme="dark"] {
+    --primary-color: #1a1a1a;
+    --secondary-color: #2d2d2d;
+    --text-color: #ffffff;
+    --display-bg: #333333;
+    --button-bg: #4a4a4a;
+}
+
+/* 添加移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+        padding: 10px;
+    }
+    
+    .sidebar {
+        position: fixed;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}
+
+/* 添加动画效果 */
+.button {
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.button:active {
+    transform: scale(0.95);
+} 

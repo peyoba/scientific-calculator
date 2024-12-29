@@ -1,0 +1,28 @@
+# IDE/编辑器文件
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+
+# 依赖目录
+node_modules/
+vendor/
+
+# 日志文件
+*.log
+npm-debug.log*
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 构建输出
+dist/
+build/
+out/
+
+# 环境配置
+.env
+.env.local
+.env.*.local 

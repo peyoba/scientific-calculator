@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学计算器</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="nav-header">
+                <i class="fas fa-calculator"></i>
+                <span>计算器</span>
+            </div>
+            <div class="nav-section">
+                <div class="section-title">计算器</div>
+                <a href="#" class="nav-item" data-mode="standard">
+                    <i class="fas fa-calculator"></i>
+                    <span>标准</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="scientific">
+                    <i class="fas fa-square-root-alt"></i>
+                    <span>科学</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="programmer">
+                    <i class="fas fa-code"></i>
+                    <span>程序员</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>日期</span>
+                </a>
+            </div>
+            <div class="nav-section">
+                <div class="section-title">转换器</div>
+                <a href="#" class="nav-item" data-mode="currency">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>货币</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="volume">
+                    <i class="fas fa-cube"></i>
+                    <span>容量</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="length">
+                    <i class="fas fa-ruler"></i>
+                    <span>长度</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="weight">
+                    <i class="fas fa-weight"></i>
+                    <span>重量</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="temperature">
+                    <i class="fas fa-thermometer-half"></i>
+                    <span>温度</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="energy">
+                    <i class="fas fa-bolt"></i>
+                    <span>能量</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="area">
+                    <i class="fas fa-vector-square"></i>
+                    <span>面积</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="speed">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>速度</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="time">
+                    <i class="fas fa-clock"></i>
+                    <span>时间</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="power">
+                    <i class="fas fa-plug"></i>
+                    <span>功率</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="data">
+                    <i class="fas fa-database"></i>
+                    <span>数据</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="pressure">
+                    <i class="fas fa-compress-arrows-alt"></i>
+                    <span>压强</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="angle">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span>角度</span>
+                </a>
+            </div>
+            <div class="nav-section">
+                <div class="section-title">单位转换</div>
+                <a href="#" class="nav-item" data-mode="currency-converter">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>货币转换</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="length-converter">
+                    <i class="fas fa-ruler"></i>
+                    <span>长度转换</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="volume-converter">
+                    <i class="fas fa-cube"></i>
+                    <span>容量转换</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="weight-converter">
+                    <i class="fas fa-weight"></i>
+                    <span>重量转换</span>
+                </a>
+                <a href="#" class="nav-item" data-mode="temperature-converter">
+                    <i class="fas fa-thermometer-half"></i>
+                    <span>温度转换</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div id="standard-calculator" class="calculator-mode">
+                <div class="calculator-container">
+                    <div class="calculator">
+                        <div class="display">
+                            <div class="memory-display">M</div>
+                            <div class="previous-operand"></div>
+                            <div class="current-operand">0</div>
+                        </div>
+                        <div class="keypad">
+                            <button class="function">%</button>
+                            <button class="function">CE</button>
+                            <button class="clear">C</button>
+                            <button class="function">⌫</button>
+                            
+                            <button class="function">1/x</button>
+                            <button class="function">x²</button>
+                            <button class="function">√</button>
+                            <button class="operator">÷</button>
+                            
+                            <button class="number">7</button>
+                            <button class="number">8</button>
+                            <button class="number">9</button>
+                            <button class="operator">×</button>
+                            
+                            <button class="number">4</button>
+                            <button class="number">5</button>
+                            <button class="number">6</button>
+                            <button class="operator">-</button>
+                            
+                            <button class="number">1</button>
+                            <button class="number">2</button>
+                            <button class="number">3</button>
+                            <button class="operator">+</button>
+                            
+                            <button class="function">±</button>
+                            <button class="number">0</button>
+                            <button class="number">.</button>
+                            <button class="equals">=</button>
+                        </div>
+                    </div>
+                    <div class="history">
+                        <h3>历史记录</h3>
+                        <div class="history-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="scientific-calculator" class="calculator-mode">
+                <div class="calculator-container">
+                    <div class="calculator">
+                        <div class="display">
+                            <div class="memory-display">M</div>
+                            <div class="angle-mode">
+                                <button class="mode-button active">DEG</button>
+                                <button class="mode-button">RAD</button>
+                            </div>
+                            <div class="previous-operand"></div>
+                            <div class="current-operand">0</div>
+                        </div>
+                        
+                        <div class="scientific-keypad">
+                            <div class="memory-row">
+                                <button class="memory">MC</button>
+                                <button class="memory">MR</button>
+                                <button class="memory">M+</button>
+                                <button class="memory">M-</button>
+                                <button class="memory">MS</button>
+                            </div>
+                            
+                            <div class="main-keypad">
+                                <button class="function">2ⁿᵈ</button>
+                                <button class="function">sin</button>
+                                <button class="function">cos</button>
+                                <button class="function">tan</button>
+                                <button class="clear">C</button>
+                                
+                                <button class="function">π</button>
+                                <button class="function">sin⁻¹</button>
+                                <button class="function">cos⁻¹</button>
+                                <button class="function">tan⁻¹</button>
+                                <button class="function">⌫</button>
+                                
+                                <button class="function">x²</button>
+                                <button class="function">√</button>
+                                <button class="function">(</button>
+                                <button class="function">)</button>
+                                <button class="operator">÷</button>
+                                
+                                <button class="function">xʸ</button>
+                                <button class="number">7</button>
+                                <button class="number">8</button>
+                                <button class="number">9</button>
+                                <button class="operator">×</button>
+                                
+                                <button class="function">10ˣ</button>
+                                <button class="number">4</button>
+                                <button class="number">5</button>
+                                <button class="number">6</button>
+                                <button class="operator">-</button>
+                                
+                                <button class="function">log</button>
+                                <button class="number">1</button>
+                                <button class="number">2</button>
+                                <button class="number">3</button>
+                                <button class="operator">+</button>
+                                
+                                <button class="function">ln</button>
+                                <button class="function">±</button>
+                                <button class="number">0</button>
+                                <button class="function">.</button>
+                                <button class="equals">=</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history">
+                        <h3>历史记录</h3>
+                        <div class="history-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="programmer-calculator" class="calculator-mode">
+                <div class="calculator-container">
+                    <div class="calculator">
+                        <div class="display programmer-display">
+                            <div class="memory-display">内存中未保存任何内容。</div>
+                            
+                            <div class="base-display">
+                                <div class="hex-display">HEX 0</div>
+                                <div class="dec-display">DEC 0</div>
+                                <div class="oct-display">OCT 0</div>
+                                <div class="bin-display">BIN 0</div>
+                            </div>
+                            
+                            <div class="previous-operand"></div>
+                            <div class="current-operand">0</div>
+                        </div>
+                        
+                        <div class="mode-select">
+                            <button class="mode-button">⚙</button>
+                            <button class="mode-button active">QWORD</button>
+                            <button class="mode-button">MS</button>
+                        </div>
+                        
+                        <div class="base-select">
+                            <button class="base-button active">HEX</button>
+                            <button class="base-button">DEC</button>
+                            <button class="base-button">OCT</button>
+                            <button class="base-button">BIN</button>
+                        </div>
+                        
+                        <div class="programmer-keypad">
+                            <button class="function hex">A</button>
+                            <button class="function hex">B</button>
+                            <button class="function hex">C</button>
+                            <button class="function hex">D</button>
+                            <button class="function hex">E</button>
+                            <button class="function hex">F</button>
+                            
+                            <button class="function" title="按位与">AND</button>
+                            <button class="function" title="按位或">OR</button>
+                            <button class="function" title="按位异或">XOR</button>
+                            <button class="function" title="按位取反">NOT</button>
+                            <button class="function" title="左移">LSH</button>
+                            <button class="function" title="右移">RSH</button>
+                            
+                            <button class="clear">CE</button>
+                            <button class="clear">C</button>
+                            <button class="function">⌫</button>
+                            <button class="function">Mod</button>
+                            <button class="function">%</button>
+                            <button class="operator">÷</button>
+                            
+                            <button class="number">1</button>
+                            <button class="number">2</button>
+                            <button class="number">7</button>
+                            <button class="number">8</button>
+                            <button class="number">9</button>
+                            <button class="operator">×</button>
+                            
+                            <button class="function">循环左移</button>
+                            <button class="function">循环右移</button>
+                            <button class="number">4</button>
+                            <button class="number">5</button>
+                            <button class="number">6</button>
+                            <button class="operator">-</button>
+                            
+                            <button class="function">(</button>
+                            <button class="function">)</button>
+                            <button class="number">1</button>
+                            <button class="number">2</button>
+                            <button class="number">3</button>
+                            <button class="operator">+</button>
+                            
+                            <button class="function">±</button>
+                            <button class="function">.</button>
+                            <button class="number">0</button>
+                            <button class="number">3</button>
+                            <button class="number">4</button>
+                            <button class="equals">=</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="date-calculator" class="calculator-mode">
+                <div class="date-calculator-container">
+                    <div class="calculator-section">
+                        <h3>日期差值计算</h3>
+                        <div class="date-input-group">
+                            <input type="date" class="date-input" id="fromDate">
+                            <span>至</span>
+                            <input type="date" class="date-input" id="toDate">
+                        </div>
+                        <div class="date-result" id="dateDifference">
+                            选择日期以计算差值
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-section">
+                        <h3>日期加减</h3>
+                        <div class="date-input-group">
+                            <input type="date" class="date-input" id="baseDate">
+                            <div class="date-operations">
+                                <div class="date-operation-button" id="addDays">
+                                    添加天数
+                                </div>
+                                <div class="date-operation-button" id="subtractDays">
+                                    减少天数
+                                </div>
+                            </div>
+                            <input type="number" class="date-input" id="daysCount" placeholder="输入天数">
+                        </div>
+                        <div class="date-result" id="dateCalculation">
+                            选择日期和天数进行计算
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="currency-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>货币转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="CNY">人民币 (CNY)</option>
+                                <option value="USD">美元 (USD)</option>
+                                <option value="EUR">欧元 (EUR)</option>
+                                <option value="GBP">英镑 (GBP)</option>
+                                <option value="JPY">日元 (JPY)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="USD">美元 (USD)</option>
+                                <option value="CNY">人民币 (CNY)</option>
+                                <option value="EUR">欧元 (EUR)</option>
+                                <option value="GBP">英镑 (GBP)</option>
+                                <option value="JPY">日元 (JPY)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>1 CNY = 0.1389 USD</p>
+                        <p class="update-time">上次更新时间：2024-01-21 12:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="length-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>长度转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <!-- 公制单位 -->
+                                <option value="km">千米 (km)</option>
+                                <option value="m">米 (m)</option>
+                                <option value="dm">分米 (dm)</option>
+                                <option value="cm">厘米 (cm)</option>
+                                <option value="mm">毫米 (mm)</option>
+                                <option value="μm">微米 (μm)</option>
+                                <option value="nm">纳米 (nm)</option>
+                                
+                                <!-- 英制单位 -->
+                                <option value="mi">英里 (mi)</option>
+                                <option value="fur">弗隆 (fur)</option>
+                                <option value="ch">链 (ch)</option>
+                                <option value="rd">竿 (rd)</option>
+                                <option value="yd">码 (yd)</option>
+                                <option value="ft">英尺 (ft)</option>
+                                <option value="in">英寸 (in)</option>
+                                <option value="mil">密尔 (mil)</option>
+                                
+                                <!-- 航海单位 -->
+                                <option value="nmi">海里 (nmi)</option>
+                                <option value="ftm">英寻 (ftm)</option>
+                                <option value="cable">缆 (cable)</option>
+                                
+                                <!-- 天文单位 -->
+                                <option value="ly">光年 (ly)</option>
+                                <option value="au">天文单位 (au)</option>
+                                <option value="pc">秒差距 (pc)</option>
+                                <option value="angstrom">埃 (Å)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <!-- 公制单位 -->
+                                <option value="mm">毫米 (mm)</option>
+                                <option value="cm">厘米 (cm)</option>
+                                <option value="dm">分米 (dm)</option>
+                                <option value="m">米 (m)</option>
+                                <option value="km">千米 (km)</option>
+                                <option value="μm">微米 (μm)</option>
+                                <option value="nm">纳米 (nm)</option>
+                                
+                                <!-- 英制单位 -->
+                                <option value="in">英寸 (in)</option>
+                                <option value="ft">英尺 (ft)</option>
+                                <option value="yd">码 (yd)</option>
+                                <option value="mi">英里 (mi)</option>
+                                <option value="mil">密尔 (mil)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="temperature-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>温度转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="0">
+                            <select class="converter-select">
+                                <option value="C">摄氏度 (°C)</option>
+                                <option value="F">华氏度 (°F)</option>
+                                <option value="K">开尔文 (K)</option>
+                                <option value="Ra">兰氏度 (°Ra)</option>
+                                <option value="Re">列氏度 (°Re)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="F">华氏度 (°F)</option>
+                                <option value="C">摄氏度 (°C)</option>
+                                <option value="K">开尔文 (K)</option>
+                                <option value="Ra">兰氏度 (°Ra)</option>
+                                <option value="Re">列氏度 (°Re)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>温度转换说明：</p>
+                        <ul>
+                            <li>°C = (°F - 32) × 5/9</li>
+                            <li>K = °C + 273.15</li>
+                            <li>°Ra = (°C + 273.15) × 9/5</li>
+                            <li>°Re = °C × 4/5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="volume-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>容量转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <!-- 公制单位 -->
+                                <option value="m3">立方米 (m³)</option>
+                                <option value="l">升 (L)</option>
+                                <option value="dl">分升 (dL)</option>
+                                <option value="cl">厘升 (cL)</option>
+                                <option value="ml">毫升 (mL)</option>
+                                <option value="cm3">立方厘米 (cm³)</option>
+                                <option value="mm3">立方毫米 (mm³)</option>
+                                
+                                <!-- 英制单位 -->
+                                <option value="gal">加仑 (gal)</option>
+                                <option value="qt">夸脱 (qt)</option>
+                                <option value="pt">品脱 (pt)</option>
+                                <option value="cup">杯 (cup)</option>
+                                <option value="floz">液量盎司 (fl oz)</option>
+                                <option value="tbsp">汤匙 (tbsp)</option>
+                                <option value="tsp">茶匙 (tsp)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="ml">毫升 (mL)</option>
+                                <option value="l">升 (L)</option>
+                                <option value="m3">立方米 (m³)</option>
+                                <option value="cm3">立方厘米 (cm³)</option>
+                                <option value="gal">加仑 (gal)</option>
+                                <option value="qt">夸脱 (qt)</option>
+                                <option value="pt">品脱 (pt)</option>
+                                <option value="floz">液量盎司 (fl oz)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>容量换算说明：</p>
+                        <ul>
+                            <li>1 L = 1000 mL</li>
+                            <li>1 m³ = 1000 L</li>
+                            <li>1 gal ≈ 3.78541 L</li>
+                            <li>1 qt ≈ 0.946353 L</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="weight-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>重量转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <!-- 公制单位 -->
+                                <option value="t">吨 (t)</option>
+                                <option value="kg">千克 (kg)</option>
+                                <option value="hg">百克 (hg)</option>
+                                <option value="dag">十克 (dag)</option>
+                                <option value="g">克 (g)</option>
+                                <option value="dg">分克 (dg)</option>
+                                <option value="cg">厘克 (cg)</option>
+                                <option value="mg">毫克 (mg)</option>
+                                <option value="μg">微克 (μg)</option>
+                                
+                                <!-- 英制单位 -->
+                                <option value="lt">长吨 (lt)</option>
+                                <option value="st">短吨 (st)</option>
+                                <option value="cwt">英担 (cwt)</option>
+                                <option value="qr">夸特 (qr)</option>
+                                <option value="st_weight">石 (st)</option>
+                                <option value="lb">磅 (lb)</option>
+                                <option value="oz">盎司 (oz)</option>
+                                <option value="dr">打兰 (dr)</option>
+                                <option value="gr">格令 (gr)</option>
+                                
+                                <!-- 珠宝单位 -->
+                                <option value="ct">克拉 (ct)</option>
+                                <option value="point">分 (point)</option>
+                                
+                                <!-- 中国传统单位 -->
+                                <option value="dan">担</option>
+                                <option value="jin">斤</option>
+                                <option value="liang">两</option>
+                                <option value="qian">钱</option>
+                                <option value="fen">分</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="g">克 (g)</option>
+                                <option value="kg">千克 (kg)</option>
+                                <option value="mg">毫克 (mg)</option>
+                                <option value="t">吨 (t)</option>
+                                <option value="lb">磅 (lb)</option>
+                                <option value="oz">盎司 (oz)</option>
+                                <option value="ct">克拉 (ct)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>重量换算说明：</p>
+                        <ul>
+                            <li>1 kg = 1000 g</li>
+                            <li>1 g = 1000 mg</li>
+                            <li>1 t = 1000 kg</li>
+                            <li>1 lb ≈ 0.453592 kg</li>
+                            <li>1 oz ≈ 28.3495 g</li>
+                            <li>1 ct = 0.2 g</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="area-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>面积转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <!-- 公制单位 -->
+                                <option value="m2">平方米 (m²)</option>
+                                <option value="km2">平方千米 (km²)</option>
+                                <option value="ha">公顷 (ha)</option>
+                                <option value="a">公亩 (a)</option>
+                                <option value="dm2">平方分米 (dm²)</option>
+                                <option value="cm2">平方厘米 (cm²)</option>
+                                <option value="mm2">平方毫米 (mm²)</option>
+                                
+                                <!-- 英制单位 -->
+                                <option value="mi2">平方英里 (mi²)</option>
+                                <option value="acre">英亩 (acre)</option>
+                                <option value="rood">路德 (rood)</option>
+                                <option value="yd2">平方码 (yd²)</option>
+                                <option value="ft2">平方英尺 (ft²)</option>
+                                <option value="in2">平方英寸 (in²)</option>
+                                
+                                <!-- 中国传统单位 -->
+                                <option value="qing">顷</option>
+                                <option value="mu">亩</option>
+                                <option value="fen">分</option>
+                                <option value="li2">平方厘</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <!-- 确保这里的选项与上面一致 -->
+                                <option value="m2">平方米 (m²)</option>
+                                <option value="km2">平方千米 (km²)</option>
+                                <option value="ha">公顷 (ha)</option>
+                                <option value="a">公亩 (a)</option>
+                                <option value="dm2">平方分米 (dm²)</option>
+                                <option value="cm2">平方厘米 (cm²)</option>
+                                <option value="mm2">平方毫米 (mm²)</option>
+                                
+                                <option value="mi2">平方英里 (mi²)</option>
+                                <option value="acre">英亩 (acre)</option>
+                                <option value="rood">路德 (rood)</option>
+                                <option value="yd2">平方码 (yd²)</option>
+                                <option value="ft2">平方英尺 (ft²)</option>
+                                <option value="in2">平方英寸 (in²)</option>
+                                
+                                <option value="qing">顷</option>
+                                <option value="mu">亩</option>
+                                <option value="fen">分</option>
+                                <option value="li2">平方厘</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>面积换算说明：</p>
+                        <ul>
+                            <li>1 平方千米 = 100 公顷</li>
+                            <li>1 公顷 = 10000 平方米</li>
+                            <li>1 英亩 ≈ 4046.86 平方米</li>
+                            <li>1 亩 ≈ 666.67 平方米</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="speed-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>速度转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="m/s">米每秒 (m/s)</option>
+                                <option value="km/h">千米每小时 (km/h)</option>
+                                <option value="cm/s">厘米每秒 (cm/s)</option>
+                                <option value="mm/s">毫米每秒 (mm/s)</option>
+                                <option value="mi/h">英里每小时 (mi/h)</option>
+                                <option value="ft/s">英尺每秒 (ft/s)</option>
+                                <option value="in/s">英寸每秒 (in/s)</option>
+                                <option value="knot">节 (knot)</option>
+                                <option value="mach">马赫 (mach)</option>
+                                <option value="c">光速 (c)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="m/s">米每秒 (m/s)</option>
+                                <option value="km/h">千米每小时 (km/h)</option>
+                                <option value="cm/s">厘米每秒 (cm/s)</option>
+                                <option value="mm/s">毫米每秒 (mm/s)</option>
+                                <option value="mi/h">英里每小时 (mi/h)</option>
+                                <option value="ft/s">英尺每秒 (ft/s)</option>
+                                <option value="in/s">英寸每秒 (in/s)</option>
+                                <option value="knot">节 (knot)</option>
+                                <option value="mach">马赫 (mach)</option>
+                                <option value="c">光速 (c)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>速度换算说明：</p>
+                        <ul>
+                            <li>1 米每秒 = 3.6 千米每小时</li>
+                            <li>1 英里每小时 ≈ 1.60934 千米每小时</li>
+                            <li>1 节 ≈ 1.852 千米每小时</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="time-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>时间转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="s">秒 (s)</option>
+                                <option value="min">分钟 (min)</option>
+                                <option value="h">小时 (h)</option>
+                                <option value="day">天 (day)</option>
+                                <option value="week">周 (week)</option>
+                                <option value="month">月 (month)</option>
+                                <option value="year">年 (year)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="s">秒 (s)</option>
+                                <option value="min">分钟 (min)</option>
+                                <option value="h">小时 (h)</option>
+                                <option value="day">天 (day)</option>
+                                <option value="week">周 (week)</option>
+                                <option value="month">月 (month)</option>
+                                <option value="year">年 (year)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>时间换算说明：</p>
+                        <ul>
+                            <li>1 分钟 = 60 秒</li>
+                            <li>1 小时 = 3600 秒</li>
+                            <li>1 天 = 86400 秒</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="energy-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>能量转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="J">焦耳 (J)</option>
+                                <option value="kJ">千焦耳 (kJ)</option>
+                                <option value="cal">卡路里 (cal)</option>
+                                <option value="kcal">千卡路里 (kcal)</option>
+                                <option value="Wh">瓦时 (Wh)</option>
+                                <option value="kWh">千瓦时 (kWh)</option>
+                                <option value="BTU">英热单位 (BTU)</option>
+                                <option value="eV">电子伏特 (eV)</option>
+                                <option value="ft-lb">英尺磅 (ft-lb)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="J">焦耳 (J)</option>
+                                <option value="kJ">千焦耳 (kJ)</option>
+                                <option value="cal">卡路里 (cal)</option>
+                                <option value="kcal">千卡路里 (kcal)</option>
+                                <option value="Wh">瓦时 (Wh)</option>
+                                <option value="kWh">千瓦时 (kWh)</option>
+                                <option value="BTU">英热单位 (BTU)</option>
+                                <option value="eV">电子伏特 (eV)</option>
+                                <option value="ft-lb">英尺磅 (ft-lb)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>能量换算说明：</p>
+                        <ul>
+                            <li>1 千卡路里 = 4184 焦耳</li>
+                            <li>1 瓦时 = 3600 焦耳</li>
+                            <li>1 英热单位 = 1055.06 焦耳</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="power-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>功率转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="W">瓦特 (W)</option>
+                                <option value="kW">千瓦 (kW)</option>
+                                <option value="MW">兆瓦 (MW)</option>
+                                <option value="hp">马力 (hp)</option>
+                                <option value="hp_e">电气马力 (hp_e)</option>
+                                <option value="ft-lb/s">英尺磅每秒 (ft-lb/s)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="W">瓦特 (W)</option>
+                                <option value="kW">千瓦 (kW)</option>
+                                <option value="MW">兆瓦 (MW)</option>
+                                <option value="hp">马力 (hp)</option>
+                                <option value="hp_e">电气马力 (hp_e)</option>
+                                <option value="ft-lb/s">英尺磅每秒 (ft-lb/s)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>功率换算说明：</p>
+                        <ul>
+                            <li>1 千瓦 = 1000 瓦特</li>
+                            <li>1 马力 ≈ 745.7 瓦特</li>
+                            <li>1 英尺磅每秒 ≈ 1.35582 瓦特</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="data-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>数据转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="bit">比特 (bit)</option>
+                                <option value="B">字节 (B)</option>
+                                <option value="KB">千字节 (KB)</option>
+                                <option value="MB">兆字节 (MB)</option>
+                                <option value="GB">吉字节 (GB)</option>
+                                <option value="TB">太字节 (TB)</option>
+                                <option value="PB">拍字节 (PB)</option>
+                                <option value="EB">艾字节 (EB)</option>
+                                <option value="ZB">泽字节 (ZB)</option>
+                                <option value="YB">尧字节 (YB)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="bit">比特 (bit)</option>
+                                <option value="B">字节 (B)</option>
+                                <option value="KB">千字节 (KB)</option>
+                                <option value="MB">兆字节 (MB)</option>
+                                <option value="GB">吉字节 (GB)</option>
+                                <option value="TB">太字节 (TB)</option>
+                                <option value="PB">拍字节 (PB)</option>
+                                <option value="EB">艾字节 (EB)</option>
+                                <option value="ZB">泽字节 (ZB)</option>
+                                <option value="YB">尧字节 (YB)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>数据换算说明：</p>
+                        <ul>
+                            <li>1 字节 = 8 比特</li>
+                            <li>1 千字节 = 1024 字节</li>
+                            <li>1 兆字节 = 1024 千字节</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pressure-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>压强转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="Pa">帕斯卡 (Pa)</option>
+                                <option value="kPa">千帕 (kPa)</option>
+                                <option value="MPa">兆帕 (MPa)</option>
+                                <option value="bar">巴 (bar)</option>
+                                <option value="atm">标准大气压 (atm)</option>
+                                <option value="psi">磅力每平方英寸 (psi)</option>
+                                <option value="torr">毫米汞柱 (torr)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="Pa">帕斯卡 (Pa)</option>
+                                <option value="kPa">千帕 (kPa)</option>
+                                <option value="MPa">兆帕 (MPa)</option>
+                                <option value="bar">巴 (bar)</option>
+                                <option value="atm">标准大气压 (atm)</option>
+                                <option value="psi">磅力每平方英寸 (psi)</option>
+                                <option value="torr">毫米汞柱 (torr)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>压强换算说明：</p>
+                        <ul>
+                            <li>1 巴 = 100,000 帕斯卡</li>
+                            <li>1 标准大气压 ≈ 101,325 帕斯卡</li>
+                            <li>1 磅力每平方英寸 ≈ 6,894.76 帕斯卡</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="angle-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>角度转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="deg">度 (°)</option>
+                                <option value="rad">弧度 (rad)</option>
+                                <option value="grad">刻度 (grad)</option>
+                                <option value="min">分 (′)</option>
+                                <option value="sec">秒 (″)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="deg">度 (°)</option>
+                                <option value="rad">弧度 (rad)</option>
+                                <option value="grad">刻度 (grad)</option>
+                                <option value="min">分 (′)</option>
+                                <option value="sec">秒 (″)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>角度换算说明：</p>
+                        <ul>
+                            <li>1 度 = 60 分</li>
+                            <li>1 分 = 60 秒</li>
+                            <li>1 弧度 ≈ 57.2958 度</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="concentration-converter" class="calculator-mode converter-mode">
+                <div class="converter-header">
+                    <h2>浓度转换器</h2>
+                </div>
+                <div class="converter-body">
+                    <div class="converter-input-group">
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input" value="1">
+                            <select class="converter-select">
+                                <option value="% w/w">质量百分比 (% w/w)</option>
+                                <option value="mol/L">摩尔浓度 (mol/L)</option>
+                                <option value="g/L">质量浓度 (g/L)</option>
+                                <option value="mg/L">毫克每升 (mg/L)</option>
+                                <option value="ppm">百万分之一 (ppm)</option>
+                                <option value="ppb">十亿分之一 (ppb)</option>
+                            </select>
+                        </div>
+                        <div class="converter-equals">=</div>
+                        <div class="converter-input-container">
+                            <input type="number" class="converter-input">
+                            <select class="converter-select">
+                                <option value="% w/w">质量百分比 (% w/w)</option>
+                                <option value="mol/L">摩尔浓度 (mol/L)</option>
+                                <option value="g/L">质量浓度 (g/L)</option>
+                                <option value="mg/L">毫克每升 (mg/L)</option>
+                                <option value="ppm">百万分之一 (ppm)</option>
+                                <option value="ppb">十亿分之一 (ppb)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-info">
+                        <p>浓度换算说明：</p>
+                        <ul>
+                            <li>1 质量百分比 = 10 g/L</li>
+                            <li>1 摩尔浓度 ≈ 10 % w/w（假设密度为1 g/mL）</li>
+                            <li>1 ppm = 1 mg/L</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="converter.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
