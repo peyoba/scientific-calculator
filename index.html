@@ -40,6 +40,10 @@
                 <i class="fas fa-calendar-alt"></i>
                 <span>日期</span>
             </a>
+            <a href="#" class="nav-item" data-mode="resistor">
+                <i class="fas fa-microchip"></i>
+                <span>电阻阻值表</span>
+            </a>
         </div>
         <div class="nav-section">
             <div class="section-title">转换器</div>
@@ -1052,10 +1056,62 @@
                     </div>
                 </div>
             </div>
+
+            <div id="resistor-calculator" class="calculator-mode">
+                <div class="resistor-container">
+                    <div class="resistor-header">
+                        <h2>电阻阻值表</h2>
+                        <div class="series-selector">
+                            <select id="resistorSeries">
+                                <option value="E6">E6系列 (±20%)</option>
+                                <option value="E12">E12系列 (±10%)</option>
+                                <option value="E24">E24系列 (±5%)</option>
+                                <option value="E48">E48系列 (±2%)</option>
+                                <option value="E96">E96系列 (±1%)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="resistor-table-container">
+                        <table class="resistor-table">
+                            <thead>
+                                <tr>
+                                    <th>标称值 (Ω)</th>
+                                    <th>色环标识</th>
+                                    <th>最小值 (Ω)</th>
+                                    <th>最大值 (Ω)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resistorTableBody">
+                                <!-- 将通过JavaScript动态填充 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="color-code-reference">
+                        <h3>色环对照表</h3>
+                        <div class="color-bands">
+                            <div class="color-band" style="background-color: black">黑 (0)</div>
+                            <div class="color-band" style="background-color: brown">棕 (1)</div>
+                            <div class="color-band" style="background-color: red">红 (2)</div>
+                            <div class="color-band" style="background-color: orange">橙 (3)</div>
+                            <div class="color-band" style="background-color: yellow">黄 (4)</div>
+                            <div class="color-band" style="background-color: green">绿 (5)</div>
+                            <div class="color-band" style="background-color: blue">蓝 (6)</div>
+                            <div class="color-band" style="background-color: violet">紫 (7)</div>
+                            <div class="color-band" style="background-color: gray">灰 (8)</div>
+                            <div class="color-band" style="background-color: white">白 (9)</div>
+                            <div class="color-band tolerance" style="background-color: gold">金 (±5%)</div>
+                            <div class="color-band tolerance" style="background-color: silver">银 (±10%)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 
     <script src="converter.js"></script>
     <script src="script.js"></script>
+    <script src="resistor.js"></script>
 </body>
 </html> 

@@ -1085,3 +1085,85 @@ body {
         display: block;
     }
 } 
+
+/* 电阻阻值表样式 */
+.resistor-container {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.resistor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.series-selector select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.resistor-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.resistor-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+.resistor-table th,
+.resistor-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.resistor-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.resistor-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.color-code-reference {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.color-bands {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.color-band {
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    color: white;
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .resistor-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .color-bands {
+        grid-template-columns: repeat(3, 1fr);
+    }
+} 
